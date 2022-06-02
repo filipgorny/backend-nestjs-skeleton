@@ -1,6 +1,6 @@
 import { MikroORM } from '@mikro-orm/core';
-import { UseRequestContext } from '@mikro-orm/nestjs';
-import { Seed } from '../../core/entity/seed.entity';
+import { UseRequestContext } from '@mikro-orm/core';
+import { Seed } from './../entity/seed.entity';
 import { SeedRecipe } from '../recipe/seed-recipe';
 import { SeedRegistry } from '../registry/seed.registry';
 

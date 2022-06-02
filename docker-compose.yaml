@@ -15,7 +15,7 @@ services:
     working_dir: /usr/src/app
     command: npm run start:dev
     ports:
-      - 3000:3000
+      - 3420:3420
     volumes:
       - .:/usr/src/app
     restart: unless-stopped

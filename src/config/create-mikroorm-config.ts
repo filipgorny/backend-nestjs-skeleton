@@ -11,7 +11,7 @@ export const createMikroormConfig = (configService) => {
     port: configService.get('DATABASE_PORT'),
     user: configService.get('DATABASE_USER'),
     password: configService.get('DATABASE_PASSWORD'),
-    type: 'mariadb',
+    type: 'mysql',
     driver: MySqlDriver,
     migrations: migrationsOptions,
     cache: {
