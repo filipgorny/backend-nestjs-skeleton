@@ -7,6 +7,7 @@ import { EnvironmentVariables } from './config/environment-variables.interface';
 import { createMikroormConfig } from './config/create-mikroorm-config';
 import { SeedModule } from './seed/seed.module';
 import { Migrator } from './migration/migrator';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { Migrator } from './migration/migrator';
       inject: [ConfigService],
     }),
     SeedModule.forRoot(),
+    UserModule,
   ],
   controllers: [],
   providers: [AppService, Migrator],

@@ -24,4 +24,24 @@ export class SeedModule {
       exports: [SeederService],
     };
   }
+
+  static forFeature(...seedRecipes: SeedRecipe[]): DynamicModule {
+    const registry = new SeedRegistry();
+
+    registry.addRecipe(...seedRecipes);
+
+    return {
+      module: SeedModule,
+      providers: [
+        {
+          provide: SeederService,
+          useFactory: (orm: MikroORM) => {
+            return new SeederService(orm, registry);
+          },
+          inject: [MikroORM],
+        },
+      ],
+      exports: [SeederService],
+    };
+  }
 }
