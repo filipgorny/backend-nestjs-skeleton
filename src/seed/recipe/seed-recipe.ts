@@ -2,6 +2,8 @@ import { EntityManager } from '@mikro-orm/core';
 import { Reference } from '../registry/reference';
 
 export abstract class SeedRecipe {
+  constructor(...args: any[]) {}
+
   public abstract run(): Promise<void>;
   protected em: EntityManager;
 
