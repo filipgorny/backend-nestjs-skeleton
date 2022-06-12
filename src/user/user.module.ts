@@ -3,16 +3,20 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { ConfigModule } from '@nestjs/config';
 import config from '../config/config';
 import { entities } from '../config/entities';
-import { PasswordService } from './service/password.service';
-import { SeedModule } from 'src/seed/seed.module';
+import { SeedModule } from '../seed/seed.module';
 import { UserRecipe } from './seed/user.recipe';
+import { SecurityModule } from '../security/security.module';
+import { LazyModule } from 'src/lazy/lazy.module';
+import { LazyModuleLoader } from '@nestjs/core';
 
 @Module({
   imports: [
+    SecurityModule,
     MikroOrmModule.forFeature(entities),
     ConfigModule.forRoot({ load: [config] }),
-    SeedModule.forFeature(new UserRecipe()),
+    SeedModule.forFeature(UserRecipe),
+    LazyModule,
   ],
-  providers: [PasswordService],
+  providers: [LazyModuleLoader],
 })
 export class UserModule {}

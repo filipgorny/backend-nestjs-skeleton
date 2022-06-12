@@ -8,6 +8,7 @@ import { createMikroormConfig } from './config/create-mikroorm-config';
 import { SeedModule } from './seed/seed.module';
 import { Migrator } from './migration/migrator';
 import { UserModule } from './user/user.module';
+import { UserRecipe } from './user/seed/user.recipe';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { UserModule } from './user/user.module';
       },
       inject: [ConfigService],
     }),
-    SeedModule.forRoot(),
+    SeedModule.forRoot(UserRecipe),
     UserModule,
   ],
   controllers: [],

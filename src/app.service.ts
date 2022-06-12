@@ -11,6 +11,6 @@ export class AppService implements OnModuleInit {
 
   async onModuleInit() {
     await this.migrator.up();
-    await this.seederService.seed();
+    await this.seederService.commit();
   }
 }

@@ -5,6 +5,7 @@ import { entities } from './entities';
 
 export const createMikroormConfig = (configService) => {
   const config: MikroOrmModuleOptions = {
+    //registerRequestContext: false,
     entities: entities,
     dbName: configService.get('DATABASE_NAME'),
     host: configService.get('DATABASE_HOST'),
